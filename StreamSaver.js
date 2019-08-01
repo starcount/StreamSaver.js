@@ -23,8 +23,7 @@
     createWriteStream,
     WritableStream: window.WritableStream || ponyfill.WritableStream,
     supported: true,
-    version: { full: '2.0.0', major: 2, minor: 0, dot: 0 },
-    mitm: 'https://jimmywarting.github.io/StreamSaver.js/mitm.html?version=2.0.0'
+    version: { full: '2.0.0', major: 2, minor: 0, dot: 0 }
   }
 
   /**
@@ -124,7 +123,8 @@
    * @param  {number} size     depricated
    * @return {WritableStream}
    */
-  function createWriteStream (filename, options, size) {
+  function createWriteStream (filename, options, size, mitmUrl) {
+    streamSaver.mitm = mitmUrl;
     let opts = {
       size: null,
       pathname: null,
